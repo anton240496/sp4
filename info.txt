@@ -1,0 +1,42 @@
+для создания темы
+нужен index.html
+style.css с  названием темы 
+
+/*
+Theme Name: mag1
+*/
+после папка asets uгде весь функционал
+файл functions.php  где все подключение -смотри файл
+желательно в файле index написать только 
+<?php get_header(); ?>
+<?php get_footer(); ?>
+основные часть сайта в файле home (не забыть в настрорйках woocommerce в чтение - главная страница home )
+
+<?php
+/*
+Template Name: home
+при это страница home указать шаблон
+*/
+?>
+
+<?php get_header(); ?>
+<?php get_footer(); ?>
+
+шапка в header 
+в header
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AntoxaWeb Верстка и разработка сайтов под ключ</title>
+
+  <?php wp_head(); ?>--  обезательно
+</head>
+  <?php the_custom_logo(); ?>--логотип
+вниз footer
+  <?php wp_footer(); ?>
+
+
+</body>
+
+</html>
