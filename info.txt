@@ -40,3 +40,33 @@ Template Name: home
 </body>
 
 </html>
+картинки  src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg"
+
+записи
+    <?php
+        global $post;
+
+        $myposts = get_posts([
+          'numberposts' => -1,
+          'category' => 4
+        ]);
+
+        if ($myposts) {
+          foreach ($myposts as $post) {
+            setup_postdata($post);
+            ?>
+            <div class="primer">
+              <a class="primer_link" target="_blank" href="<?php the_field('url'); ?>">
+                <img class="primer_img" src="<?php the_field('foto'); ?>" alt="">
+                <p class="primer_text">
+                  <?php the_field('name'); ?>
+                </p>
+                <button class="primer_text primer_pos">Посмотреть</button>
+                <p class="primer_text primer_cena primer_html">Верстка сайта <br><span>
+                    <?php the_field('vert'); ?>руб.</span></p>
+                <p class="primer_text primer_cena">Верстка, разработка, подключение к серверу <br><span>
+                    <?php the_field('wp'); ?>руб. </span>
+                </p>
+              </a>
+            </div>
+            <?php
