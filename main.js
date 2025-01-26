@@ -45,7 +45,7 @@ $('.menu_btn').on('click', function(){
     ]
    });
 
-
+//смена одного блокак в массиве
 $(function () {
     let btns = document.querySelectorAll('.menu_blink');//кнопка
     // console.log(btns)
@@ -70,3 +70,56 @@ $(function () {
         });
     }
 });
+
+
+//slick
+
+
+  $slickGreen = false;
+  function greenSlider() {
+    if ($(window).width() < 751) {
+      if (!$slickGreen) {
+        $(".buy_inner").slick({
+          infinite: true,
+          speed: 300,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          adaptiveHeight: true,
+          nextArrow: false,
+          prevArrow: false,
+          rows: 2,
+          dots: true,
+        });
+
+        $('.instag_inner').slick({
+          dots: true,
+          infinite: true,
+
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          prevArrow: false,
+          nextArrow: false,
+        });
+
+        $slickGreen = true;
+      }
+    } else if ($(window).width() > 751) {
+      if ($slickGreen) {
+        $('.buy_inner').slick('unslick');
+        $('.instag_inner').slick('unslick');
+
+          //в одну функции можно задать сколько угодно клдассов для slick
+        $slickGreen = false;
+      }
+    }
+  };
+
+  $(document).ready(function () {
+    // ....
+    greenSlider();
+  });
+  $(window).on('resize', function () {
+    //  ....
+    greenSlider();
+  });
+
