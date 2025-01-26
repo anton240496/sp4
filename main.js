@@ -44,3 +44,29 @@ $('.menu_btn').on('click', function(){
       },
     ]
    });
+
+
+$(function () {
+    let btns = document.querySelectorAll('.menu_blink');//кнопка
+    // console.log(btns)
+    for (btn of btns) {
+        btn.addEventListener('click', function () {
+            let card = this.closest('.menu_opisanie li');//обезательно (это блок, в котором должны быть все классы ниже) 
+            let arr = card.querySelector('.menu_blink_span');
+            let clas = card.querySelector('.more_open');
+
+            if (arr.style.transform === "rotate(90deg)") {
+                arr.style.transform = "rotate(0deg)";
+                clas.style.fontSize = "0px";
+                
+
+            } else {
+                arr.style.transform = "rotate(90deg)";
+                clas.style.fontSize = "16px";
+               
+                
+            }
+
+        });
+    }
+});
