@@ -17,3 +17,72 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
+// при открытии и закрытиии пунктов в классах ul li
+
+
+<style>
+/* все ниже классы обезательны */
+.menu_opisanie li {
+  /* & .more_open {
+    font-size: 0px;
+  } */
+
+  /* & .menu_blink_span {
+    transform: rotate(0deg);
+  } */
+
+  &.on .more_open {
+    font-size: 16px;
+  }
+
+  &.on .menu_blink {
+    color: #FFD723;
+    border-bottom: 1px solid #FFD723;
+  }
+
+  &.on .blink::after{
+    content: '';
+    background-color:#FFD723 ;
+  }
+
+  &.on .menu_blink_span {
+    transform: rotate(90deg);
+  }
+
+
+}
+</style>
+ 
+ <ul class="menu_opisanie">
+        <li>
+          
+          <h2 class="title_menu">Product
+            Design Sprint</h2>
+          <p class="menu_text">A five-day workshop that will help you answer crucial business questions</p>
+          <button class="blink menu_blink"> <span class="menu_blink_span"> &#9658</span>Read More</button>
+          <p class="more_open">Все качественнно, выгодно по доступной цене</p>
+        </li>
+        <li>
+          
+          <h2 class="title_menu">Scoping
+            Session</h2>
+          <p class="menu_text">A workshop aimed at shaping your business idea, answering questions regarding project
+            planning</p>
+          <button class="blink menu_blink"><span class="menu_blink_span"> &#9658</span>Read More</button>
+          <p class="more_open">Все качественнно, выгодно по доступной цене</p>
+        </li>
+</ul>
+ 
+<script>
+const op = document.querySelector('.menu_opisanie')//это класс обозначает где должны находится все последующие блоки
+    op.addEventListener('click', e => {
+        const curb = e.target.closest('button')
+        if (!curb) return; 
+        const onli = op.querySelector('.on');
+        onli?.classList.remove('on')//--это строка позволяет блокам удалять класс у соседних блоков
+        const curli = curb.closest('li');
+        curli.classList.toggle('on', curli !== onli)
+    })
+
+</script>
