@@ -98,6 +98,23 @@ html {
     margin: 0 auto;
   }
 
+стрелки
+.menu_opisanie .slick-arrow{
+  position: absolute;
+  bottom: -60px;
+  display: inline-block;
+  font-size: 0px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.menu_opisanie .slick-prev{
+  left: 0;
+  border-right: 10px solid #1f384399;
+}
+
   @media (max-width: 1180px) {
     .important_list {
       gap: 30px 20px;
